@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <center>
+    <h1 class="display-4">URL Shortener</h1>
+    <img class="index-image" src="../static/about_page_image.jpg" alt="">
+    <br><br>
+    <form method="post">
+        <input class="form-control" type="text" name="url_in" placeholder="Please enter original url:" title="URL Here" required>
+        <hr>
+        <button class="btn btn-block btn-outline-primary">Shorten Link</button>
+    </form>
+  </center>
+ <br>
+ <br>
+    <form>
+      <p class="lead">Shortened Link is: </p>
+       <center>
+          <input class="form-control" value= "127.0.0.1:5000/srse/{{k}}" id="myInput" disabled><br>
+          <button class="btn btn-block btn-outline-info" onclick="myFunction()"> Copy </button>
+       </center>
+    </form>
+ <br>
+
+<script>
+function myFunction() {
+
+  var copyText = document.getElementById(""+"myInput");
+
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+
+  navigator.clipboard.writeText(copyText.value);
+
+  alert("Copied the text: " + copyText.value);
+}
+</script>
+</div>
+
+{% endblock %}
